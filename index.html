@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بَشتنی | منوی دیجیتال</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f0e5;color:#173b48;font-family:Tahoma,Arial,sans-serif}
+header{background:#173b48;color:#f6f0e5;text-align:center;padding:35px 15px;border-radius:0 0 28px 28px}
+header h1{font-size:35px;margin:0 0 10px}
+header p{margin:0;color:#e6d9c2}
+main{max-width:650px;margin:auto;padding:20px 14px}
+h2{font-size:19px;border-right:4px solid #b9a27a;padding-right:10px;margin-top:28px}
+.item{display:flex;justify-content:space-between;gap:12px;background:white;padding:14px;margin:9px 0;border-radius:13px;box-shadow:0 2px 9px #173b4810}
+.price{color:#8a7654;white-space:nowrap}
+footer{text-align:center;padding:30px;color:#6d7776;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>بَشتنی</h1>
+<p>یه طعم خوشمزه، یه حال خوب 🍦</p>
+</header>
+<main id="menu"></main>
+<footer>با عشق، از بَشتنی 🤍</footer>
+<script>
+const groups = {
+"بستنی و فالوده":["بستنی","فالوده","فالوده بستنی"],
+"شیرموز":["شیرموز","شیرموز مخصوص","شیرموز پسته","شیرموز خرما","شیرموز هویچ","شیرموز طالبی","شیرموز انبه"],
+"شیرهای ویژه":["شیرپسته","شیرانبه","شیر انبه مخصوص"],
+"آبمیوه‌ها":["آب طالبی","آب اناناس","آب هویچ","آب سیب","آب انبه","اب سیب هویچ","اب سیب موز","اب سیب هویچ","اب کرفس","اب کرفس هویچ","اب کرفس سیب","اب کرفس لیمو ترش","اب اناز","اب زرشک","اب اناز زرشک","اب البالو","اب پرتقال","اب گریپ فروت"],
+"آیس‌پک":["ایس پک شکلات","ایس پک موز","ایس پک کیک بستنی","ایس پک طالبی","ایس پک توت فرنگی"],
+"شیک":["شیک شکلات","شیک طالبی","شیک توت فرنگی","شیک کیک پسته"],
+"خوراکی‌های ویژه":["ذرت مکزیکی","ذرت مکزیکی مخصوص","معجون مخصوص بشتنی"]
+};
+const menu=document.getElementById("menu");
+for(const [group,items] of Object.entries(groups)){
+ const section=document.createElement("section");
+ const title=document.createElement("h2");
+ title.textContent=group;
+ section.appendChild(title);
+ items.forEach(name=>{
+  const row=document.createElement("div");
+  row.className="item";
+  const item=document.createElement("span");
+  item.textContent=name;
+  const price=document.createElement("span");
+  price.className="price";
+  price.textContent="قیمت: —";
+  row.append(item,price);
+  section.appendChild(row);
+ });
+ menu.appendChild(section);
+}
+</script>
+</body>
+</html>
